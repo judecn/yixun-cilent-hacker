@@ -1,0 +1,9 @@
+#!/bin/sh
+if [ -z $1 ]||[ -z $2 ]||[ -z $3 ]||[ -z $4 ]||[ -z $5 ] ;then
+	echo "USE:yx [Route account] [Route passwrd] [Route IP] [YX acoount] [YX passwrd]"
+	echo "E,g:yx admin admin 192.168.1.1 15101021833 115110                Good Luck!"
+	exit
+fi
+ACC=`yixun $4 $5`
+LOGIN_LINK="http://"$1":"$2"@"$3"/userRpm/PPPoECfgRpm.htm?wan=0&wantype=1&acc=%0D%0A"$ACC"&psw="$5"&confirm=208841&specialDial=100&SecType=0&sta_ip=0.0.0.0&sta_mask=0.0.0.0&linktype=1&Save=%B1%A3+%B4%E6"
+firefox $LOGIN_LINK
